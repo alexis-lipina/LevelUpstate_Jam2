@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+
+        var timerStartTime;
+        var isTicking = false;
+
+        function startTimer() {
+            timerStartTime = new Date().getTime();
+            isTicking = true;
+        }
+
+        function stopTimer() {
+            isTicking = false;
+        }
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+            if (isTicking)
+            {
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var timeElapsed = now - timerStartTime;
+
+                // Time calculations for days, hours, minutes and seconds
+                var minutes = Math.floor((timeElapsed % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((timeElapsed % (1000 * 60)) / 1000);
+
+                // Display the result in the element with id="demo"
+                document.getElementById("timer").innerHTML = minutes + ":" + seconds;
+            }
+        }, 1000);
+    </script>
+  </head>
+  <body>
+    <header>
+        <h1>trail.io</h1>
+    </header>
+
+    <div class="trail-view-header">
+        <img class="main-image" src="media/trail1.jpg">
+        <img class="google-maps" src="media/google_maps.png"> 
+        <div>
+            <h2>Brookdale Preserve</h2>
+            <p>★★★★☆ 4.5 (22 reviews)</p>
+        </div>
+    </div>
+
+    <div class="vertical-menu">
+        <a>
+            <div class="list-item-scav">
+                <div class="list-header">
+                    <img class="google-maps" src="media/scav_icon.png">
+                    <h3>Find These Photos Of Weird Trees</h3>
+                    <p>Scavenger Hunt by Alexis Lipina</p>
+                </div>
+                <div class="scavenger-photos"> <!-- Clicking this should expand it to show a scrollable list of images you can inspect and "check off" -->
+                    <img src="media/tree1.jpg">
+                    <img src="media/tree2.jpg">
+                    <img src="media/tree3.jpg">
+                </div>
+            </div>
+        </a>
+        <a>
+            <div class="list-item-time">
+                <div class="list-header">
+                    <img class="google-maps" src="media/clock_icon.png">
+                    <h3>North Trailhead to Park Point</h3>
+                    <p>Time Trial by Davis Snider</p>
+                </div>
+                <div class="time-trial-view"> <!-- Clicking this should open a view that contains:
+                    - little google maps view of the route that shows the length underneath, 
+                    - a leaderboard view, and 
+                    - a "start/stop" toggle that opens the QR scanner -->
+                    <button onClick="startTimer()">
+                        Start Timer
+                    </button>
+                    <button onClick="stopTimer()">
+                        Stop Timer
+                    </button>
+                    <h3>Time Elapsed:</h3>
+                    <h3 id="timer">00:00</h3>
+
+                </div>
+            </div>
+        </a>
+      </div>
+  </body>
+</html>

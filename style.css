@@ -1,0 +1,95 @@
+header {
+    background: #A7DCA9;
+    text-align: center;
+    padding: 2%;
+    margin:0%;
+}
+
+h1 {
+    color:white;
+}
+
+/* --- Menu shit copied over */
+.vertical-menu {
+    width: 100%;
+    display: inline-block;
+  }
+  
+  .vertical-menu a {
+    background-color: #eee; 
+    color: black;
+    display: inline-block; 
+    padding: 10px; 
+    text-decoration: none;
+  }
+
+  .vertical-menu a img {
+    width: 33%;
+    aspect-ratio: 1.0;
+    object-fit: cover;
+    display: inline-block;
+  }
+  .trail-desc {
+    width:66%;
+    display:inline-block;
+  }
+  
+  .vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+  }
+  
+  .vertical-menu a.active {
+    background-color: #04AA6D; /* Add a green color to the "active/current" link */
+    color: white;
+  }
+  
+/* --- Little colored icons that tell you what activities are available */
+
+  .icon-scav {
+    width:33%;
+    background-color: #04AA6D;
+    display:inline-block;
+  }
+
+  .icon-scav img {
+    height:100%;
+    aspect-ratio: 1.0;
+    display: inline-block;
+  }
+  
+  .icon-scav p {
+    width:66%;
+    display: inline-block;
+  }
+
+/* --- example-trail.html */
+
+
+.trail-view-header .main-image {
+    width: 100%;
+    aspect-ratio: 1.5;
+    object-fit: cover;
+}
+
+.trail-view-header .google-maps {
+    width: 10%;
+    aspect-ratio: 1.0;
+    display:inline-block;
+}
+
+.trail-view-header div {
+    width: 80%;
+    display: inline-block;
+}
+
+.trail-view-header h2 {
+    display: inline-block;
+}
+
+.list-item-time{
+    background-color: #be6bcf;
+}
+
+.list-item-scav{
+    background-color: #04AA6D;
+}
