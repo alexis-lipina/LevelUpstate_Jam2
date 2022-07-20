@@ -13,54 +13,75 @@ h1 {
 .vertical-menu {
     width: 100%;
     display: inline-block;
-  }
+}
   
-  .vertical-menu a {
-    background-color: #eee; 
-    color: black;
-    display: inline-block; 
-    padding: 10px; 
-    text-decoration: none;
-  }
+.vertical-menu a {
+  background-color: #eee; 
+  color: black;
+  display: inline-block; 
+  padding: 10px; 
+  text-decoration: none;
+}
 
-  .vertical-menu a img {
-    width: 33%;
-    aspect-ratio: 1.0;
-    object-fit: cover;
-    display: inline-block;
-  }
-  .trail-desc {
-    width:66%;
-    display:inline-block;
-  }
+.vertical-menu a img {
+  width: 33%;
+  aspect-ratio: 1.0;
+  object-fit: cover;
+  display: inline-block;
+}
+
+.trail-desc {
+  margin-left: 1em;
+  width:66%;
+  display:inline-block;
+}
+
+.trail-desc h2 {
+  margin-top: 0;
+}
   
-  .vertical-menu a:hover {
-    background-color: #ccc; /* Dark grey background on mouse-over */
-  }
+.vertical-menu a:hover {
+  background-color: #ccc; /* Dark grey background on mouse-over */
+}
   
-  .vertical-menu a.active {
-    background-color: #04AA6D; /* Add a green color to the "active/current" link */
-    color: white;
-  }
+.vertical-menu a.active {
+  background-color: #04AA6D; /* Add a green color to the "active/current" link */
+  color: white;
+}
+
+.trail-container {
+  display: flex;
+  align-items: center;
+}
   
 /* --- Little colored icons that tell you what activities are available */
 
-  .icon-scav {
-    width:33%;
-    background-color: #04AA6D;
-    display:inline-block;
-  }
+.icon-container{
+  display: flex;
+}
 
-  .icon-scav img {
-    height:100%;
-    aspect-ratio: 1.0;
-    display: inline-block;
-  }
+.icon-scav {
+  margin-right: .5em;
+  display: flex;
+  align-items: center;
+  max-height: 3.5em;
+  width:33%;
+  background-color: #04AA6D;
+  /*display:inline-block;*/
+}
+
+.icon-scav img {
+  margin-left: .2em;
+  max-height: 3em;
+  aspect-ratio: 1.0;
+  display: inline-block;
+}
   
-  .icon-scav p {
-    width:66%;
-    display: inline-block;
-  }
+.icon-scav p {
+  margin-left: .3em;
+  width:66%;
+  display: inline-block;
+}
 
 /* --- example-trail.html */
 
