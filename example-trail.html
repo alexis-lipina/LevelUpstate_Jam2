@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HTML 5 Boilerplate</title>
     <link rel="stylesheet" href="style.css">
+    <script src="html5-qrcode.min.js"></script>
     <script>
 
         var timerStartTime = window.localStorage.getItem("timerStartTime");
@@ -16,7 +17,6 @@
         {
             isTimerRunning = false;
         }
-
 
         function startTimer() {
             timerStartTime = new Date().getTime();
@@ -62,6 +62,22 @@
                 document.getElementById("timer").innerHTML = minutes + ":" + seconds;
             }
         }, 1000);
+
+        // QR code stuff
+
+        function onScanSuccess(decodedText, decodedResult) {
+            // Handle on success condition with the decoded text or result.
+            console.log(`Scan result: ${decodedText}`, decodedResult);
+            //document.getElementById("qr-code-output").innerHTML = decodedText;
+            if (decodedText == "start_timer")
+            {
+                startTimer();
+            }
+            if (decodedText == "stop_timer")
+            {
+                stopTimer();
+            }
+        }
     </script>
   </head>
   <body>
@@ -87,9 +103,21 @@
                     <p>Scavenger Hunt by Alexis Lipina</p>
                 </div>
                 <div class="scavenger-photos"> <!-- Clicking this should expand it to show a scrollable list of images you can inspect and "check off" -->
-                    <img src="media/tree1.jpg">
-                    <img src="media/tree2.jpg">
-                    <img src="media/tree3.jpg">
+                    <div class="scavenger-photo-slot">
+                        <img src="media/tree1.jpg">
+                        Found:
+                        <input type="checkbox" onClick="onScavengerUpdate()">
+                    </div>
+                    <div class="scavenger-photo-slot">
+                        <img src="media/tree2.jpg">
+                        Found:
+                        <input type="checkbox" onClick="onScavengerUpdate()">
+                    </div>
+                    <div class="scavenger-photo-slot">
+                        <img src="media/tree3.jpg">
+                        Found:
+                        <input type="checkbox" onClick="onScavengerUpdate()">
+                    </div>
                 </div>
             </div>
         </a>
@@ -115,10 +143,38 @@
                     </button>
                     <h3>Time Elapsed:</h3>
                     <h3 id="timer">00:00</h3>
-
+                    <div style="width: 500px" id="reader"></div>
                 </div>
             </div>
         </a>
       </div>
   </body>
 </html>
+
+<script>
+    // needs to be put after html I guess? otherwise error
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+	    "reader", { fps: 10, qrbox: 250 });
+    html5QrcodeScanner.render(onScanSuccess);
+
+    // photo scavenger hunt - I get an error here if I have this before
+
+    var photo1Found = window.localStorage.getItem("photo1Found") == "true";
+    var photo2Found = window.localStorage.getItem("photo2Found") == "true";
+    var photo3Found = window.localStorage.getItem("photo3Found") == "true";
+
+    var checkboxes = document.getElementsByTagName("input");
+    checkboxes[0].checked = photo1Found;
+    checkboxes[1].checked = photo2Found;
+    checkboxes[2].checked = photo3Found;
+
+    function onScavengerUpdate()
+    {
+        photo1Found = checkboxes[0].checked;
+        photo2Found = checkboxes[1].checked;
+        photo3Found = checkboxes[2].checked;
+        window.localStorage.setItem("photo1Found", photo1Found);
+        window.localStorage.setItem("photo2Found", photo2Found);
+        window.localStorage.setItem("photo3Found", photo3Found);
+    }
+</script>
