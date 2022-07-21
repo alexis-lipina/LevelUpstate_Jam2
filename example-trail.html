@@ -128,22 +128,13 @@
                     <h3>North Trailhead to Park Point</h3>
                     <p>Time Trial by Davis Snider</p>
                 </div>
-                <div class="time-trial-view"> <!-- Clicking this should open a view that contains:
-                    - little google maps view of the route that shows the length underneath, 
-                    - a leaderboard view, and 
-                    - a "start/stop" toggle that opens the QR scanner -->
-                    <button onClick="startTimer()">
-                        Start Timer
-                    </button>
-                    <button onClick="stopTimer()">
-                        Stop Timer
-                    </button>
+                <div class="time-trial-view">
                     <button onClick="resetLocalStorage()">
                         Reset Local Storage
                     </button>
                     <h3>Time Elapsed:</h3>
                     <h3 id="timer">00:00</h3>
-                    <div style="width: 500px" id="reader"></div>
+                    <div style="width: 100%" id="reader"></div>
                 </div>
             </div>
         </a>
